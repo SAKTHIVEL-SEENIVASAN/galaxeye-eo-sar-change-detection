@@ -49,7 +49,7 @@ python eval.py --data_path /path/to/test --weights /path/to/checkpoint.pth
 
 ## Model Weights
 Download FINAL_SUBMISSION.pth (Epoch 10, best test generalization):
-[Download from Google Drive](PASTE_YOUR_DRIVE_LINK_HERE)
+(https://drive.google.com/file/d/16odAQZFcg8mMkuB-iMbo1GWipuBIFtOl/view?usp=sharing)
 
 ## Results
 
