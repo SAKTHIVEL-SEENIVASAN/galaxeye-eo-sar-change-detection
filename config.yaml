@@ -1,23 +1,40 @@
-data_root: /content/galaxeye_data
-save_dir: /content/drive/MyDrive/galaxeye_checkpoints
-train_scenes: [scene_01, scene_02, scene_03, scene_04, scene_05, scene_06, scene_07, scene_08]
-high_sar_scenes: [scene_06, scene_08]
-epochs: 25
-batch_size: 4
-accum_steps: 4
-lr_encoder: 0.0001
-lr_decoder: 0.0003
-weight_decay: 0.0001
-patience: 10
-crop_size: 512
-focal_alpha: 0.75
-focal_gamma: 2.0
-focal_weight: 0.6
-dice_weight: 0.4
-sparse_weight: 6.0
-dense_weight: 3.0
-empty_weight: 0.0
-high_sar_scene_weight: 0.3
-adaptive_crop_prob: 0.55
-threshold: 0.70
+# GalaxEye Change Detection Configuration
+
 seed: 42
+
+data:
+  data_root: "./data"
+  train_scenes: ["scene_01", "scene_02", "scene_03", "scene_04", "scene_05", "scene_06", "scene_07", "scene_08"]
+  high_sar_scenes: ["scene_06", "scene_08"]
+  
+training:
+  epochs: 30
+  batch_size: 4
+  accum_steps: 4
+  lr_encoder: 0.0001
+  lr_decoder: 0.0003
+  weight_decay: 0.0001
+  patience: 12
+  crop_size: 512
+  num_workers: 2
+  
+loss:
+  focal_alpha: 0.75
+  focal_gamma: 2.0
+  focal_weight: 0.6
+  dice_weight: 0.4
+  
+sampler:
+  sparse_weight: 6.0
+  dense_weight: 3.0
+  empty_weight: 0.0
+  high_sar_scene_weight: 0.3
+  
+augmentation:
+  adaptive_crop_prob: 0.55
+  
+inference:
+  slide_crop: 512
+  slide_stride: 384
+  min_blob_size: 30
+  threshold: 0.70
